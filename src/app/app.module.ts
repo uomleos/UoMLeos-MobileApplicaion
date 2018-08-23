@@ -6,11 +6,35 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import {QuizzypopPage} from "../pages/quizzypop/quizzypop";
+import {ProjectmapPage} from "../pages/projectmap/projectmap";
+import {EventsPage} from "../pages/events/events";
+import {ItsusPage} from "../pages/itsus/itsus";
+import {QuizzypopAnswerPage} from "../pages/quizzypop/quizzypop-answer/quizzypop-answer";
+import {QuizzypopWinnerPage} from "../pages/quizzypop/quizzypop-winner/quizzypop-winner";
+import {QuizzypopQuestionPage} from "../pages/quizzypop/quizzypop-question/quizzypop-question";
+import {ProjectmapMapPage} from "../pages/projectmap/projectmap-map/projectmap-map";
+import {ProjectmapListPage} from "../pages/projectmap/projectmap-list/projectmap-list";
+import {ItsusOldPage} from "../pages/itsus/itsus-old/itsus-old";
+import {ItsusLatestPage} from "../pages/itsus/itsus-latest/itsus-latest";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    QuizzypopPage,
+    ProjectmapPage,
+    EventsPage,
+    QuizzypopAnswerPage,
+    QuizzypopQuestionPage,
+    QuizzypopWinnerPage,
+    ProjectmapPage,
+    ProjectmapMapPage,
+    ProjectmapListPage,
+    ItsusPage,
+    ItsusOldPage,
+    ItsusLatestPage
+
   ],
   imports: [
     BrowserModule,
@@ -19,7 +43,18 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    EventsPage,
+    QuizzypopPage,
+    QuizzypopAnswerPage,
+    QuizzypopWinnerPage,
+    QuizzypopQuestionPage,
+    ProjectmapPage,
+    ProjectmapMapPage,
+    ProjectmapListPage,
+    ItsusPage,
+    ItsusOldPage,
+    ItsusLatestPage
   ],
   providers: [
     StatusBar,

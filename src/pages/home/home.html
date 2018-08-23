@@ -1,14 +1,30 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content class="bg-img no-scroll">
+  <ion-grid style="height: 100%">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      <ion-grid>
+        <ion-row justify-content-center align-items-center>
+          <button ion-button round outline color="events">
+            Events
+          </button>
+        </ion-row>
+        <ion-row justify-content-center align-items-center>
+          <button ion-button round outline color="quizzypop" (click)="quizzypop()">
+            QuizzyPop
+          </button>
+        </ion-row>
+        <ion-row justify-content-center align-items-center>
+          <button ion-button round outline color="primary" (click)="projectmap()">
+            ProjectMap
+          </button>
+        </ion-row>
+        <ion-row justify-content-center align-items-center>
+          <button ion-button round outline color="itsus" (click)="itsus()">
+            It's US
+          </button>
+        </ion-row>
+      </ion-grid>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

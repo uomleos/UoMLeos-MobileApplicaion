@@ -17,6 +17,8 @@ import {ProjectmapMapPage} from "../pages/projectmap/projectmap-map/projectmap-m
 import {ProjectmapListPage} from "../pages/projectmap/projectmap-list/projectmap-list";
 import {ItsusOldPage} from "../pages/itsus/itsus-old/itsus-old";
 import {ItsusLatestPage} from "../pages/itsus/itsus-latest/itsus-latest";
+import { ProjectMapProvider } from '../providers/project-map/project-map';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import {ItsusLatestPage} from "../pages/itsus/itsus-latest/itsus-latest";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +62,8 @@ import {ItsusLatestPage} from "../pages/itsus/itsus-latest/itsus-latest";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProjectMapProvider
   ]
 })
 export class AppModule {}

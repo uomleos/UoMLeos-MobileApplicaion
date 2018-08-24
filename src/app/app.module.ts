@@ -19,6 +19,9 @@ import {ItsusOldPage} from "../pages/itsus/itsus-old/itsus-old";
 import {ItsusLatestPage} from "../pages/itsus/itsus-latest/itsus-latest";
 import { ProjectMapProvider } from '../providers/project-map/project-map';
 import {HttpClientModule} from "@angular/common/http";
+import {LaunchNavigator} from "@ionic-native/launch-navigator";
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +66,9 @@ import {HttpClientModule} from "@angular/common/http";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProjectMapProvider
+    ProjectMapProvider,
+    LaunchNavigator,
+    InAppBrowser
   ]
 })
 export class AppModule {}

@@ -21,6 +21,9 @@ import { ProjectMapProvider } from '../providers/project-map/project-map';
 import {HttpClientModule} from "@angular/common/http";
 import {LaunchNavigator} from "@ionic-native/launch-navigator";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { QuizzypopProvider } from '../providers/quizzypop/quizzypop';
+import {Network} from "@ionic-native/network";
+import {OpenNativeSettings} from "@ionic-native/open-native-settings";
 
 
 @NgModule({
@@ -68,7 +71,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProjectMapProvider,
     LaunchNavigator,
-    InAppBrowser
+    InAppBrowser,
+    QuizzypopProvider,
+    Network,
+    OpenNativeSettings
   ]
 })
 export class AppModule {}

@@ -1,8 +1,4 @@
 page-home {
-  .bg-img{
-
-  }
-
   ion-row{
     margin: 10px auto;
   }
@@ -11,5 +7,27 @@ page-home {
     height: 50px!important;
     width:70vw;
     font-size: larger!important;
+    border: 2px solid rgba(255,255,255,0.6);
+  }
+
+  .home_logo{
+    width: 150px;
+    height: 150px;
+  }
+
+  .logo_row{
+    margin: 0;
+  }
+
+  video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100vw;
+    height: 100vh;
+    z-index: -100;
+    transform: translate(-50%, -50%);
   }
 }

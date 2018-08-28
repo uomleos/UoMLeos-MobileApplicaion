@@ -1,17 +1,17 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {
   GoogleMaps,
   GoogleMap,
   GoogleMapsEvent,
   GoogleMapOptions,
-  CameraPosition,
-  MarkerOptions,
-  Marker
+  Marker, GoogleMapsAnimation
 } from '@ionic-native/google-maps';
 
 import {ProjectMapProvider} from "../../../providers/project-map/project-map";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {StatusBar} from "@ionic-native/status-bar";
+import {HeaderColor} from "@ionic-native/header-color";
 
 /**
  * Generated class for the ProjectmapMapPage page.
@@ -28,6 +28,18 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
 })
 export class ProjectmapMapPage {
   map:GoogleMap;
+
+  defaultMapOptions: GoogleMapOptions = {
+    camera: {
+      target: {
+        lat: 7.8731,
+        lng: 80.7718
+      },
+      zoom: 7.5
+    },
+    mapType: 'ROADMAP'
+  };
+
   icon:any;
   public allPlaces:any;
   public year_1='2017/18';
@@ -36,16 +48,32 @@ export class ProjectmapMapPage {
   public places_2018_19=[];
   addingMarkers=true;
   filters = 'all';
+  cameraChanged = false;
+
+  uomleos_marker = {
+    name:"Leo Club of University of Moratuwa",
+    lat : 6.7968823,
+    lon : 79.8995894,
+    year : null,
+    address:"University of Moratuwa, Bandaranayake Mawatha, Katubedda, Moratuwa."
+  };
+
+  uom_icon = {
+    url: 'https://www.projectmap.uomleos.org/uomleos_marker.ico',
+  };
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public projectMapProvider:ProjectMapProvider,
               private iab: InAppBrowser,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+             ) {
     this.initializeMap();
     this.projectMapProvider.getMarkerData().subscribe((places:any)=>{
       this.allPlaces = places;
       this.projectMapProvider._all_projects=places;
       this.addMarkers(places);
+      this.addMarker(this.uomleos_marker,this.uom_icon,GoogleMapsAnimation.BOUNCE);
     });
   }
 
@@ -53,17 +81,12 @@ export class ProjectmapMapPage {
   }
 
   initializeMap() {
-    let mapOptions: GoogleMapOptions = {
-      camera: {
-        target: {
-          lat: 7.8731,
-          lng: 80.7718
-        },
-        zoom: 7.5
-      },
-      mapType: 'ROADMAP'
-    };
-    this.map = GoogleMaps.create('map_canvas', mapOptions);
+    this.map = GoogleMaps.create('map_canvas', this.defaultMapOptions);
+    this.map.on(GoogleMapsEvent.CAMERA_MOVE).subscribe(data => {
+      console.log(data);
+      this.cameraChanged = true;
+    });
+
   }
 
   addMarkers(places:any){
@@ -84,7 +107,7 @@ export class ProjectmapMapPage {
             url: 'https://www.projectmap.uomleos.org/marker_icon_2018_19.ico',
           };
       }
-        this.addMarker(project, this.icon, "DROP");
+        this.addMarker(project, this.icon, GoogleMapsAnimation.DROP);
     }
     if(temp_1.length!=0) {
       this.places_2017_18 = temp_1;
@@ -103,6 +126,10 @@ export class ProjectmapMapPage {
   }
 
   addMarker(project,icon,animation){
+    var temp = project.name; // generate title
+    if(project.year){
+      temp+=" ("+project.year+")";
+    }
     let marker: Marker = this.map.addMarkerSync({
       icon: icon,
       animation: animation,
@@ -110,14 +137,21 @@ export class ProjectmapMapPage {
         lat: parseFloat(project.lat),
         lng: parseFloat(project.lon)
       },
-      title: project.name+" ("+project.year+")" , // generate title
-
+      title: temp,
+      snippet: project.address
     });
-
     //********* below comment need to uncomment when deploying
    marker.on(GoogleMapsEvent.INFO_CLICK).subscribe(()=>{
       this.openBrowser(project);
     });
+  }
+
+  reCenter(){
+    this.map.setCameraTarget(this.defaultMapOptions.camera.target);
+    this.map.setCameraZoom(this.defaultMapOptions.camera.zoom);
+    this.map.setCameraTilt(0);
+    this.map.setCameraBearing(0);
+    this.cameraChanged = false;
   }
 
   filterProjects($event){
@@ -131,6 +165,7 @@ export class ProjectmapMapPage {
       else {
         this.addMarkers(this.allPlaces);
       }
+      this.addMarker(this.uomleos_marker,this.uom_icon,GoogleMapsAnimation.BOUNCE);
     });
 
   }

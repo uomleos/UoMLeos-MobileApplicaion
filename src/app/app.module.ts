@@ -24,6 +24,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { QuizzypopProvider } from '../providers/quizzypop/quizzypop';
 import {Network} from "@ionic-native/network";
 import {OpenNativeSettings} from "@ionic-native/open-native-settings";
+import {HeaderColor} from "@ionic-native/header-color";
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import {OpenNativeSettings} from "@ionic-native/open-native-settings";
     InAppBrowser,
     QuizzypopProvider,
     Network,
-    OpenNativeSettings
+    OpenNativeSettings,
+    HeaderColor
   ]
 })
 export class AppModule {}

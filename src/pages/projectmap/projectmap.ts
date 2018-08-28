@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ProjectmapMapPage} from "./projectmap-map/projectmap-map";
 import {ProjectmapListPage} from "./projectmap-list/projectmap-list";
 import {HomePage} from "../home/home";
+import {HeaderColor} from "@ionic-native/header-color";
+import {StatusBar} from "@ionic-native/status-bar";
 
 /**
  * Generated class for the ProjectmapPage page.
@@ -22,6 +24,8 @@ export class ProjectmapPage {
   tab2Root = ProjectmapListPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProjectmapPage');

@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title text-center>ProjectMap</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="no-scroll">
+  <ion-grid *ngIf="addingMarkers" style="position:absolute;top:0;height: 100%;margin: 0;padding: 0;background-color: rgb(254, 252, 254);z-index: 999;">
+    <ion-row justify-content-center align-items-center style="height:100%">
+      <img src="../../../assets/imgs/preloader.gif" style="width:150px;height: 150px;">
+    </ion-row>
+  </ion-grid>
+  <ion-segment (ionChange)="filterProjects($event)" [(ngModel)]="filters" style="position:absolute;top:0;z-index: 500;background-color: white;">
+    <ion-segment-button value="2017/18" >
+      2017/18&nbsp;({{ places_2017_18.length }})
+    </ion-segment-button>
+    <ion-segment-button value="all">
+      All&nbsp;({{ places_2017_18.length+places_2018_19.length }})
+    </ion-segment-button>
+    <ion-segment-button value="2018/19">
+      2018/19&nbsp;({{ places_2018_19.length }})
+    </ion-segment-button>
+  </ion-segment>
+<div id="map_canvas" style="width: 100%;height: 100%;margin: 0;padding: 0;"></div>
+</ion-content>

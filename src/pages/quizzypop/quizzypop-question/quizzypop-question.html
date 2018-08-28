@@ -1,0 +1,39 @@
+<!--
+  Generated template for the QuizzypopQuestionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="quizzypop">
+    <ion-title text-center style="font-family: Coda;">Month {{questionData?.month}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content class="no-scroll bg-img">
+  <!--Pre loader-->
+  <ion-grid *ngIf="loading" style="position:absolute;top:0;height: 100%;margin: 0;padding: 0;background-color: rgb(254, 252, 254);z-index: 999;">
+    <ion-row justify-content-center align-items-center style="height:100%">
+      <img src="../../../assets/imgs/preloader.gif" style="width:150px;height: 150px;">
+    </ion-row>
+  </ion-grid>
+  <!--Pre loader-->
+
+  <ion-grid style="height: 100%" padding>
+    <ion-row justify-content-center align-items-baseline padding style="margin-bottom: 20px;">
+      <img src="../../../assets/imgs/leo_logo.png" class="logo min-logo">
+      <img src="../../../assets/imgs/quizzypop/quizzy_logo.png" class="logo">
+      <img src="../../../assets/imgs/logo.png" class="logo min-logo">
+    </ion-row>
+    <ion-row justify-content-center align-items-center style="height: 100%;">
+      <p class="question-content" text-center style="font-family: Coda;">{{ questionData?.question }}</p>
+    </ion-row>
+    <ion-row justify-content-center align-items-center>
+      <pre text-center class="last-update">Last updated : {{questionData?.updatedDate }}</pre>
+    </ion-row>
+  </ion-grid>
+</ion-content>

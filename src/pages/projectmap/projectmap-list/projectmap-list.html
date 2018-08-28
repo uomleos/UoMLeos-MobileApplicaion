@@ -1,0 +1,91 @@
+<!--
+  Generated template for the ProjectmapListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title text-center>Project List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="no-scroll">
+  <!--Pre loader-->
+  <ion-grid *ngIf="loading" style="position:absolute;top:0;height: 100%;margin: 0;padding: 0;background-color: rgb(254, 252, 254);z-index: 999;">
+    <ion-row justify-content-center align-items-center style="height:100%">
+      <img src="../../../assets/imgs/preloader.gif" style="width:150px;height: 150px;">
+    </ion-row>
+  </ion-grid>
+  <!--Pre loader-->
+
+
+  <!--Top filtering buttons-->
+  <ion-segment (ionChange)="filterProjects($event)" [(ngModel)]="filters">
+    <ion-segment-button value="2017/18" >
+      2017/18&nbsp;({{ year_1_count }})
+    </ion-segment-button>
+    <ion-segment-button value="all" >
+      All&nbsp;({{ year_1_count+year_2_count }})
+    </ion-segment-button>
+    <ion-segment-button value="2018/19" >
+      2018/19&nbsp;({{ year_2_count }})
+    </ion-segment-button>
+  </ion-segment>
+  <!--Top filtering buttons end-->
+
+  <!--all tab data-->
+  <div *ngIf="tab_all" class="list_wrapper">
+    <ion-list>
+    <ion-item *ngFor="let project of all_list;let i= count;"   text-wrap>
+      <h2 style="font-weight: bold; font-family: Coda;" [style.color]="project.year==year_1?'#04135f':'#ff9000'" (click)="openBrowser(project)">{{project.name}}</h2>
+      <p style="font-family: Coda;font-size: small;" (click)="openNavigation(project)" ><ion-icon name="pin" align-items-baseline></ion-icon>&nbsp;&nbsp;{{project.address}}</p>
+      <p style="font-family: Coda;font-size: small;"><ion-icon name="calendar" align-items-baseline></ion-icon>&nbsp;&nbsp;{{project.year}}</p>
+      <ion-thumbnail item-start>
+        <img src="{{project.year==year_1?'../../../assets/imgs/projectmap/marker_1.png':'../../../assets/imgs/projectmap/marker_2.png'}}" >
+      </ion-thumbnail>
+    </ion-item>
+
+    </ion-list>
+  </div>
+  <!--all tab data end-->
+
+  <!--Year 1 tab data-->
+  <div class="list_wrapper" *ngIf="tab_year_1">
+    <ion-list>
+      <div *ngFor="let project of all_list;" >
+      <ion-item *ngIf="project.year==year_1"  text-wrap>
+        <h2 style="font-weight: bold;color: #04135f;font-family: Coda;" (click)="openBrowser(project)">{{project.name}}</h2>
+        <p style="font-family: Coda;font-size: small;" (click)="openNavigation(project)"><ion-icon name="pin" align-items-baseline></ion-icon>&nbsp;&nbsp;{{project.address}}</p>
+        <p style="font-family: Coda;font-size: small;"><ion-icon name="calendar" align-items-baseline></ion-icon>&nbsp;&nbsp;{{project.year}}</p>
+        <ion-thumbnail item-start>
+          <img src='../../../assets/imgs/projectmap/marker_1.png' >
+        </ion-thumbnail>
+      </ion-item>
+      </div>
+
+    </ion-list>
+  </div>
+  <!--Year 1 tab data end-->
+
+  <!--Year 2 tab data-->
+  <div  *ngIf="tab_year_2" class="list_wrapper">
+    <ion-list>
+      <div *ngFor="let project of all_list" >
+        <ion-item *ngIf="project.year==year_2" text-wrap >
+          <h2 style="font-weight: bold;color:#ff9000;font-family: Coda;" (click)="openBrowser(project)">{{project.name}}</h2>
+          <p style="font-family: Coda;font-size: small;" (click)="openNavigation(project)"><ion-icon name="pin" align-items-baseline></ion-icon>&nbsp;&nbsp;{{project.address}}</p>
+          <p style="font-family: Coda;font-size: small;"><ion-icon name="calendar" align-items-baseline></ion-icon>&nbsp;&nbsp;{{project.year}}</p>
+          <ion-thumbnail item-start>
+            <img src='../../../assets/imgs/projectmap/marker_2.png' >
+          </ion-thumbnail>
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+  <!--Year 2 tab data end-->
+
+
+</ion-content>

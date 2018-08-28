@@ -1,0 +1,41 @@
+page-quizzypop-winner {
+  .bg-img{
+    background-image: url("../../../assets/imgs/quizzypop/winner_back.gif"),url("../../../assets/imgs/quizzypop/quizzy_back.png");
+    background-position: center , center;
+    background-repeat: repeat,no-repeat;
+    background-size: auto,cover;
+  }
+
+  .user_img{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    position: absolute;
+  }
+  .trophy{
+    width: 120px;
+    height: 120px;
+    z-index: 5;
+    position: relative;
+    top: 70px;
+    left: 50px;
+  }
+  .details{
+    position: relative;
+    top: -15%;
+  }
+  .winner_starts{
+    width: 250px;
+    height: 250px;
+    -webkit-animation: rotation 18s infinite linear;
+  }
+
+  @-webkit-keyframes rotation {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+    }
+  }
+}

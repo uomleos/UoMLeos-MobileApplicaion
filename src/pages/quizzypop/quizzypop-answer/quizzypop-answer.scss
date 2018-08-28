@@ -1,0 +1,62 @@
+page-quizzypop-answer {
+  .scroll-content{
+    padding-top: 5px!important;
+  }
+
+  .bg-img{
+    background-image: url("../../../assets/imgs/quizzypop/quizzy_back.png"),url("../../../assets/imgs/quizzypop/quizzy_back_answer.png");
+    background-position:  center,center;
+    background-repeat: no-repeat,no-repeat;
+    background-size:cover,cover;
+  }
+
+  .input{
+    padding: 2px;
+    border: #EE3268 solid 1px;
+    border-radius:20px;
+    font-size: 12px;
+    height: 40px;
+    font-family: Coda;
+  }
+
+  .textarea{
+    height: auto;
+  }
+
+  .field{
+    background-color: rgba(255,255,255,0.5);
+  }
+
+  .logo{
+    width: 80px;
+    height: 80px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(238, 50, 104,0.7);
+
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(238, 50, 104,0.8);
+
+  }
+
+
+}

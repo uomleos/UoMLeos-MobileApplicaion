@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import {Network} from "@ionic-native/network";
 import {OpenNativeSettings} from "@ionic-native/open-native-settings";
+import {HeaderColor} from "@ionic-native/header-color";
 @Component({
   templateUrl: 'app.html'
 })
@@ -15,7 +16,9 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private app:App,
               private alertCtrl:AlertController,
               private network:Network,
-              private openNativeSettings:OpenNativeSettings) {
+              private openNativeSettings:OpenNativeSettings,
+              private headerColor : HeaderColor) {
+    this.headerColor.tint('#488aff');
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

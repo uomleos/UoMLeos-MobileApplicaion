@@ -1,4 +1,12 @@
 <ion-content class="no-scroll">
+  <!--Pre loader-->
+  <ion-grid *ngIf="loading" style="position:absolute;top:0;height: 100%;margin: 0;padding: 0;background-color: rgb(254, 252, 254);z-index: 999;">
+    <ion-row justify-content-center align-items-center style="height:100%">
+      <img src="../../../assets/imgs/preloader.gif" style="width:150px;height: 150px;">
+    </ion-row>
+  </ion-grid>
+  <!--Pre loader-->
+
   <video src="../../assets/videos/home/home_back.mp4" type="video/mp4" autoplay loop></video>
   <ion-grid style="height: 100%">
     <ion-row justify-content-center align-items-center style="height: 100%">

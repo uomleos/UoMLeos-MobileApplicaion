@@ -10,7 +10,11 @@ import {ItsusPage} from "../itsus/itsus";
 })
 export class HomePage {
 
+  loading=true;
   constructor(public navCtrl: NavController) {
+    setTimeout(()=>{
+      this.loading=false;
+    },500);
 
   }
 

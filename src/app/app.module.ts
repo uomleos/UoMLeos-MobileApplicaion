@@ -25,6 +25,7 @@ import { QuizzypopProvider } from '../providers/quizzypop/quizzypop';
 import {Network} from "@ionic-native/network";
 import {OpenNativeSettings} from "@ionic-native/open-native-settings";
 import {HeaderColor} from "@ionic-native/header-color";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {HeaderColor} from "@ionic-native/header-color";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -17,6 +17,21 @@ page-quizzypop-answer {
     font-size: 12px;
     height: 40px;
     font-family: Coda;
+    color: #EE3268;
+  }
+
+  button {
+    color: white!important;
+  }
+
+  .error_field{
+    border: #d50000 dashed 1px;
+  }
+
+  .error{
+    font-size: 9px;
+    color: #d50000;
+    font-family: Coda;
   }
 
   .textarea{
@@ -59,4 +74,43 @@ page-quizzypop-answer {
   }
 
 
+}
+
+ion-spinner *{
+  stroke: #EE3268!important;
+}
+
+.alert-md .alert-wrapper{
+  border-radius: 25px;
+  max-width: 280px;
+  -webkit-box-shadow: 0 16px 20px rgba(238, 50, 104,0.3);
+  box-shadow: 0 5px 20px rgba(238, 50, 104,0.3);
+}
+
+.alert-md .alert-title{
+  width: 80px!important;
+  height: 80px!important;
+  margin: auto!important;
+}
+
+.alert-md .alert-head{
+  padding-bottom: 0;
+  padding-top: 20px;
+}
+
+.alert-sub-title,.alert-button{
+  font-family: Coda;
+ text-align: center!important;
+  color: #EE3268!important;
+  margin-top: 5px;
+}
+
+.alert-md .alert-message{
+  text-align: center!important;
+  color: rgba(238, 50, 104,0.7)!important;
+  font-family: Coda;
+  font-size: 12px;
+  overflow-y: hidden;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }

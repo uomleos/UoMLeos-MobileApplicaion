@@ -10,47 +10,73 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="no-scroll bg-img" padding>
-      <ion-grid style="height: 100%;">
-        <ion-row justify-content-center align-items-center style="height: 100%">
-          <img src="../../../assets/imgs/quizzypop/quizzy_logo.png" class="logo animate3d">
-        </ion-row>
-      <form>
-        <ion-row>
-          <ion-col>
-            <ion-input type="text"  text-center placeholder="QuizzyPop Month" class="input field"
-                       width-100></ion-input>
-          </ion-col>
-        </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input type="text"  text-center placeholder="Your name" class="input field"
-                         width-100></ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input type="tel"  text-center placeholder="Your contact number" class="input field"
-                         width-100></ion-input>
-            </ion-col>
-          </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-input type="email"  text-center placeholder="Your email" class="input field"
-                       width-100></ion-input>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-textarea type="tel"  text-center placeholder="Your answer" class="input textarea field"
-                       width-100></ion-textarea>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col >
-            <button type="submit"  text-center ion-button  round block color="quizzypop" class="input"
-                          width-100>Submit Answer</button>
-          </ion-col>
-        </ion-row>
-      </form>
-        </ion-grid>
+  <ion-grid style="height: 100%;">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      <img src="../../../assets/imgs/quizzypop/quizzy_logo.png" class="logo animate3d">
+    </ion-row>
+    <form [formGroup]="form">
+      <ion-row>
+        <ion-col text-center>
+          <ion-input type="text" formControlName="month" text-center placeholder="QuizzyPop Month" class="input field"
+                     width-100 [class.error_field]="month.touched && month.invalid"></ion-input>
+          <span class="helper-text error" *ngIf="month.touched && month.invalid">
+                  <span *ngIf="month.errors.required">QuizzyPop month required!</span>
+                  <span *ngIf="!month.errors.required && month.errors.monthError">Invalid month!</span>
+                    </span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <ion-input type="text" formControlName="name" text-center placeholder="Your name" class="input field"
+                     width-100 [class.error_field]="name.touched && name.invalid"></ion-input>
+          <span class="helper-text error" *ngIf="name.touched && name.invalid">
+                  <span *ngIf="name.errors.required">Your name required!</span>
+                    </span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <ion-input type="tel" formControlName="contact" text-center placeholder="Your contact number (07XXXXXXXX)"
+                     class="input field"
+                     width-100 [class.error_field]="contact.touched && contact.invalid"></ion-input>
+          <span class="helper-text error" *ngIf="contact.touched && contact.invalid">
+                  <span *ngIf="contact.errors.required">Your contact number required!</span>
+                  <span *ngIf="!contact.errors.contactLength && !contact.errors.required && contact.errors.contactNumber">Invalid contact number! (07XXXXXXXX)</span>
+                  <span *ngIf="!contact.errors.required && contact.errors.contactLength">Contact number must have 10 digits!</span>
+                    </span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <ion-input type="email" formControlName="email" text-center placeholder="Your email" class="input field"
+                     width-100 [class.error_field]="email.touched && email.invalid"></ion-input>
+          <span class="helper-text error" *ngIf="email.touched && email.invalid">
+                  <span *ngIf="email.errors.required">Your email address required!</span>
+                  <span *ngIf="!email.errors.required && email.errors.email">Please enter valid email address!</span>
+                    </span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <ion-textarea type="tel" text-center formControlName="answer" placeholder="Your answer"
+                        class="input textarea field"
+                        width-100 [class.error_field]="answer.touched && answer.invalid"></ion-textarea>
+          <span class="helper-text error" *ngIf="answer.touched && answer.invalid">
+                  <span *ngIf="answer.errors.required">Answer must enter before submit!</span>
+                    </span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button type="submit" text-center ion-button round block color="quizzypop" class="input"
+                  width-100
+                  [disabled]="month.invalid || name.invalid || contact.invalid || email.invalid || answer.invalid"
+          (click)="submit()"
+          >
+            Submit Answer
+          </button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
 </ion-content>

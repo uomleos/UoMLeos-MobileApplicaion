@@ -18,4 +18,13 @@ export class QuizzypopProvider {
     return this.http.get("http://www.quizzypop.uomleos.org/phpOperations/mobile/getData.php");
   }
 
+  submitAnswer(data){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/X-www-form=urlencoded');
+    headers.append("Access-Control-Allow-Origin", "*");
+    headers.append("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
+
+    return this.http.post("http://quizzypop.uomleos.org/phpOperations/submitAnswerMobile.php",data);
+  }
+
 }

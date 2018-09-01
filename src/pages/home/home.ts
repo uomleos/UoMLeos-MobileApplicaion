@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import {QuizzypopPage} from "../quizzypop/quizzypop";
 import {ProjectmapPage} from "../projectmap/projectmap";
 import {ItsusPage} from "../itsus/itsus";
+import {EventsPage} from "../events/events";
 
 @Component({
   selector: 'page-home',
@@ -28,5 +29,9 @@ export class HomePage {
 
   itsus(){
     this.navCtrl.setRoot(ItsusPage);
+  }
+
+  events(){
+    this.navCtrl.setRoot(EventsPage);
   }
 }

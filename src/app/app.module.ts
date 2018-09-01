@@ -26,6 +26,7 @@ import {Network} from "@ionic-native/network";
 import {OpenNativeSettings} from "@ionic-native/open-native-settings";
 import {HeaderColor} from "@ionic-native/header-color";
 import {FormsModule} from "@angular/forms";
+import {EventsProvider} from "../providers/events/events";
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import {FormsModule} from "@angular/forms";
     QuizzypopProvider,
     Network,
     OpenNativeSettings,
-    HeaderColor
+    HeaderColor,
+    EventsProvider
   ]
 })
 export class AppModule {}

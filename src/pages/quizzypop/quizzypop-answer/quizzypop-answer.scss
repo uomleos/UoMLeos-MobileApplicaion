@@ -87,10 +87,15 @@ ion-spinner *{
   box-shadow: 0 5px 20px rgba(238, 50, 104,0.3);
 }
 
-.alert-md .alert-title{
+.alert-md .alert-title img{
+  display: block!important;
   width: 80px!important;
   height: 80px!important;
-  margin: auto!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  text-align: center!important;
+  color: #EE3268;
+
 }
 
 .alert-md .alert-head{

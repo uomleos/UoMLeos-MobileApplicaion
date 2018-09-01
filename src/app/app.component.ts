@@ -52,6 +52,7 @@ export class MyApp {
     //Network Conn checker
     this.network_alert = this.alertCtrl.create({
       subTitle: 'No Internet Connection!',
+      enableBackdropDismiss:false,
       buttons: [{
         text: 'Open Settings',
         role: 'open',

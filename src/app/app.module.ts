@@ -27,6 +27,9 @@ import {OpenNativeSettings} from "@ionic-native/open-native-settings";
 import {HeaderColor} from "@ionic-native/header-color";
 import {FormsModule} from "@angular/forms";
 import {EventsProvider} from "../providers/events/events";
+import {RecentPage} from "../pages/events/recent/recent";
+import {UpcomingPage} from "../pages/events/upcoming/upcoming";
+import {ViewRecentPage} from "../pages/events/view-recent/view-recent";
 
 
 @NgModule({
@@ -35,7 +38,6 @@ import {EventsProvider} from "../providers/events/events";
     HomePage,
     QuizzypopPage,
     ProjectmapPage,
-    EventsPage,
     QuizzypopAnswerPage,
     QuizzypopQuestionPage,
     QuizzypopWinnerPage,
@@ -44,7 +46,11 @@ import {EventsProvider} from "../providers/events/events";
     ProjectmapListPage,
     ItsusPage,
     ItsusOldPage,
-    ItsusLatestPage
+    ItsusLatestPage,
+    EventsPage,
+    RecentPage,
+    UpcomingPage,
+    ViewRecentPage
 
   ],
   imports: [
@@ -57,7 +63,6 @@ import {EventsProvider} from "../providers/events/events";
   entryComponents: [
     MyApp,
     HomePage,
-    EventsPage,
     QuizzypopPage,
     QuizzypopAnswerPage,
     QuizzypopWinnerPage,
@@ -67,7 +72,11 @@ import {EventsProvider} from "../providers/events/events";
     ProjectmapListPage,
     ItsusPage,
     ItsusOldPage,
-    ItsusLatestPage
+    ItsusLatestPage,
+    EventsPage,
+    RecentPage,
+    UpcomingPage,
+    ViewRecentPage
   ],
   providers: [
     StatusBar,

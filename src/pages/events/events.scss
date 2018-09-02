@@ -1,3 +1,5 @@
 page-events {
-
+  .tabs-md .tab-button[aria-selected=true] .tab-button-icon{
+    color : color($colors,events);
+  }
 }

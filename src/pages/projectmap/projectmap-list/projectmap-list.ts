@@ -63,10 +63,6 @@ export class ProjectmapListPage {
       message: 'Do you want to open '+project.name+' project location navigation in your map?',
       buttons: [
         {
-          text: 'Cancel',
-          role: 'cancel'
-        },
-        {
           text: 'Open',
           handler: () => {
             let options: LaunchNavigatorOptions = {
@@ -78,7 +74,12 @@ export class ProjectmapListPage {
                 error => console.log('Error launching navigator', error)
               );
           }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
         }
+
       ]
     });
     alert.present();
@@ -90,16 +91,17 @@ export class ProjectmapListPage {
       message: 'Do you want to open '+project.name+' project details in your browser?',
       buttons: [
         {
-          text: 'Cancel',
-          role: 'cancel'
-        },
-        {
           text: 'Open',
           handler: () => {
             const browser = this.iab.create(project.url,'_system');
             browser.close();
           }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
         }
+
       ]
     });
     alert.present();
